@@ -1,57 +1,136 @@
-<<<<<<< HEAD
-# Todo List Interview Task
+# Todo Application
 
-## Overview
-Create a simple Todo List application using React and TypeScript. This task is designed to be completed in 1 hour and tests fundamental React skills.
+A modern Todo application built with React, TypeScript, and Material-UI, featuring a clean and intuitive user interface.
 
-## Requirements
+## Features
 
-### Basic Features (Must Have)
-1. Add new todos
-2. Mark todos as complete/incomplete
-3. Delete todos
-4. List all todos
+- Create, read, update, and delete todos
+- Mark todos as complete/incomplete
+- Add descriptions to todos
+- Set due dates for todos
+- Set priority levels (low, medium, high)
+- Filter todos by status (all, active, completed)
+- Responsive design for all screen sizes
+- Dark/Light mode support
+- MongoDB integration for data persistence
 
-### Bonus Features (If Time Permits)
-1. Filter todos by status (All/Active/Completed)
-2. Add due dates to todos
-3. Add priority levels (Low/Medium/High)
-4. Add local storage persistence
+## Prerequisites
 
-## Technical Requirements
-- Use TypeScript for type safety
-- Use React hooks (useState, useEffect)
-- Write clean, maintainable code
-- Add basic styling (CSS/SCSS)
+- Node.js (v14 or higher)
+- npm or yarn
+- Docker and Docker Compose (for containerized setup)
 
-## Getting Started
-1. Clone this repository
-2. Run `npm install` to install dependencies
-3. Run `npm start` to start the development server
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+## Installation
 
-## Evaluation Criteria
-- Code organization and structure
-- TypeScript usage and type definitions
-- Component design and reusability
-- State management
-- Code readability and maintainability
-- Basic feature implementation
-- Bonus features implementation (if time permits)
+### Option 1: Local Development Setup
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mandrade86/ToDo.git
+   cd ToDo
+   ```
 
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Option 2: Docker Setup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd todo-app
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Build and start the containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   This will start:
+   - Frontend application (React)
+   - Backend API server
+   - MongoDB database
 
+3. Access the application:
+   - Frontend: http://localhost
+   - Backend API: http://localhost:3000
+   - MongoDB: mongodb://localhost:27017
 
-=======
-# ToDo
->>>>>>> origin/main
+## Docker Commands
+
+```bash
+# Start all services
+docker-compose up
+
+# Start services in detached mode
+docker-compose up -d
+
+# View running containers
+docker ps
+
+# View logs
+docker-compose logs
+
+# Stop all services
+docker-compose down
+
+# Stop services and remove volumes
+docker-compose down -v
+
+# Rebuild and start services
+docker-compose up --build
+```
+
+## MongoDB Management
+
+1. **Using MongoDB Compass (GUI)**:
+   - Download and install [MongoDB Compass](https://www.mongodb.com/products/compass)
+   - Connect using URI: `mongodb://localhost:27017`
+   - Database name: `todo`
+
+2. **Using MongoDB Shell**:
+   ```bash
+   # Access MongoDB shell
+   docker exec -it todo_mongodb_1 mongosh
+   ```
+
+## Environment Variables
+
+The following environment variables are used in the Docker setup:
+
+- `NODE_ENV`: Set to 'production' in Docker
+- `PORT`: Backend server port (default: 3000)
+- `MONGODB_URI`: MongoDB connection string (default: mongodb://mongodb:27017/todo)
+
+## Project Structure
+
+```
+todo-app/
+├── src/                    # Frontend source code
+│   ├── components/        # React components
+│   ├── services/         # API services
+│   └── App.tsx           # Main application component
+├── backend/              # Backend source code
+├── Dockerfile           # Frontend Docker configuration
+├── docker-compose.yml   # Docker services configuration
+└── nginx.conf          # Nginx configuration
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
