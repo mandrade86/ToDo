@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/*import React, { useState, useEffect } from 'react';
 import { Todo } from './types/todo';
 import { api } from './services/api';
 import {
@@ -569,5 +569,5 @@ function App() {
     </Box>
   );
 }
-
-export default App;
+*/
+export default () => {};

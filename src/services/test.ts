@@ -1,4 +1,4 @@
-import { Todo } from '../types/todo';
+/* import { Todo } from '../types/todo';
 
 const API_URL = 'http://localhost:3001/api';
 
@@ -99,4 +99,6 @@ export const api = {
       throw new ApiError('Network error while deleting todo');
     }
   },
-}; 
+}; */
+
+export default () => {};
